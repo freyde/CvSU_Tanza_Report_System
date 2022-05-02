@@ -90,6 +90,10 @@ class ReportController extends Controller
         return view('designations', ['designations' => $designations]);
     }
 
+    function viewProfile() {
+        return view('profile');
+    }
+
 
     function viewReportForm() {
 

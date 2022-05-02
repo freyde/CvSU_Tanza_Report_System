@@ -11,7 +11,7 @@
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
-    <script src="{{ asset('js/report.js') }}" defer></script>
+    <script src="{{ asset('js/report.js') }}" defer></script>   
     <script src = "https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 
     <!-- Fonts -->
@@ -70,7 +70,7 @@
 
                                 <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                                     @if (Auth::user()->role != "admin")
-                                        <a class="dropdown-item" href="#">Profile</a>
+                                        <a class="dropdown-item" href="{{ route('profile') }}">Profile</a>
                                     @endif
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
