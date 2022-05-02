@@ -10,8 +10,14 @@ class ReportController extends Controller
     function viewFaculty() {
         $users = DB::table('users')
             ->where('role', '!=', 'admin')
+            ->orderBy('name', 'asc')
             ->get();
-        return view('faculties', ['users' => $users]);
+
+        $designations = DB::table('designation')
+        ->orderBy('name', 'asc')
+        ->get();
+
+        return view('faculties', ['users' => $users, 'designations' => $designations]);
     }
 
     function deleteFaculty(Request $request) {
@@ -37,6 +43,7 @@ class ReportController extends Controller
 
     function viewYears() {
         $years = DB::table('year')
+            ->orderBy('year', 'asc')
             ->get();
         return view('years', ['years' => $years]);
         // return view('years');
@@ -74,6 +81,13 @@ class ReportController extends Controller
                 ])
             ->update(['status' => 'active']);
         return redirect()->route('years');
+    }
+
+    function viewDesignations() {
+        $designations = DB::table('designation')
+            ->orderBy('name', 'asc')
+            ->get();
+        return view('designations', ['designations' => $designations]);
     }
 
 

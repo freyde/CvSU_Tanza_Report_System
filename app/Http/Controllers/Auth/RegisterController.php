@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Request;
 use Illuminate\Auth\Events\Registered;
+use Illuminate\Support\Facades\DB;
 
 class RegisterController extends Controller
 {
@@ -87,4 +88,12 @@ class RegisterController extends Controller
             'designation' => $data['designation'],
         ]);
     }
+
+    public function showRegistrationForm()
+{
+    $designations = DB::table('designation')->orderBy('name', 'asc')
+    ->get();
+
+    return view('auth.register', ['designations' => $designations]);
+}
 }

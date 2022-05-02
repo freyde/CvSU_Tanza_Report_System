@@ -92,11 +92,9 @@
                                 <div class="input-group mb-3">
                                     <select class="custom-select @error('designation') is-invalid @enderror" id="designation" name="designation" required autocomplete="designation">
                                         <option selected value="none">None</option>
-                                        <option value="Curriculum">Curriculum</option>
-                                        <option value="Extension">Extension</option>
-                                        <option value="HR">Human Resource</option>
-                                        <option value="OSAs">Office of Student Affairs</option>
-                                        <option value="Registrar">Registrar</option>
+                                        @foreach ($designations as $designation)
+                                            <option value="{{ $designation->value }}">{{ $designation->name }}</option>
+                                        @endforeach
                                     </select>
                                 </div>
 

@@ -76,14 +76,11 @@
                             </table>
                         </div>
                     </div>
-                    <ul class="list-group list-group-flush">
-                        <li class="list-group-item"></li>
-                    </ul>
                 </div>
                 @endif
 
                 <!-- 
-                    Registrar and OSAS
+                    OSAS
                  -->
                 @if (Auth::user()->designation == "OSAs")
                 <div class="card-body">
@@ -198,11 +195,11 @@
                             </table>
                         </div>
                     </div>
-                    <ul class="list-group list-group-flush">
-                        <li class="list-group-item"></li>
-                    </ul>
                 </div>
                 @endif
+                <!-- 
+                    Faculty 
+                -->
                 <div class="card-body">
                     <div class="card">
                         <div class="card-header">
@@ -398,10 +395,223 @@
                             </table>
                         </div>
                     </div>
-                    <ul class="list-group list-group-flush">
-                        <li class="list-group-item"></li>
-                    </ul>
                 </div>
+                
+                <!-- 
+                    OSAS
+                 -->
+                @if (Auth::user()->designation == "OSAs")
+                <div class="card-body">
+                    <div class="card">
+                        <div class="card-header">
+                            IV. Student Development
+                        </div>
+                        <div class="card-body">
+                            <br>
+                            <h6 class="card-title">&nbsp&nbsp&nbspA. Student Organization</h6>
+                            <table id="IV-A" class="table">
+                                <thead>
+                                    <th>Name of Organization</th>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td class="text-end">
+                                            <button class="btn btn-sm btn-outline-success" onClick="addRow('IV-A', ['name'])">Add Row</button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                @endif
+
+                <div class="card-body">
+                    <div class="card">
+                        <div class="card-header">
+                            V. Research
+                        </div>
+                        <div class="card-body">
+                            <br>
+                            <h6 class="card-title">&nbsp&nbsp&nbspA. On-going Research/Study</h6>
+                            <table id="V-A" class="table">
+                                <thead>
+                                    <th>Title of the Study</th>
+                                    <th>Researcher/s</th>
+                                    <th>Target Date of Completion</th>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td></td>
+                                        <td></td>
+                                        <td class="text-end">
+                                            <button class="btn btn-sm btn-outline-success" onClick="addRow('V-A', ['title', 'researchers', 'date'])">Add Row</button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <br>
+                            <h6 class="card-title">&nbsp&nbsp&nbspB. Completed Research/Study</h6>
+                            <table id="V-B" class="table">
+                                <thead>
+                                    <th>Title of the Study</th>
+                                    <th>Researcher/s</th>
+                                    <th>Date of Completion</th>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td></td>
+                                        <td></td>
+                                        <td class="text-end">
+                                            <button class="btn btn-sm btn-outline-success" onClick="addRow('V-B', ['title', 'researchers', 'date'])">Add Row</button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <br>
+                            <h6 class="card-title">&nbsp&nbsp&nbspC. Reseach Project Funded by Outside Agency</h6>
+                            <table id="V-C" class="table">
+                                <thead>
+                                    <th>Title of the Study</th>
+                                    <th>Researcher/s</th>
+                                    <th>Sponsor Agency</th>
+                                    <th>Date of Completion</th>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td class="text-end">
+                                            <button class="btn btn-sm btn-outline-success" onClick="addRow('V-C', ['title', 'researchers', 'sponsor', 'date'])">Add Row</button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                @if (Auth::user()->designation == "Extension")
+                <div class="card-body">
+                    <div class="card">
+                        <div class="card-header">
+                            VI. Extension
+                        </div>
+                        <div class="card-body">
+                            <br>
+                            <h6 class="card-title">&nbsp&nbsp&nbspA. Extension Projects</h6>
+                            <table id="VI-A" class="table">
+                                <thead>
+                                    <th>Name of College/Campus Extension Project</th>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td class="text-end">
+                                            <button class="btn btn-sm btn-outline-success" onClick="addRow('VI-A', ['name'])">Add Row</button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <br>
+                            <h6 class="card-title">&nbsp&nbsp&nbspB. Extension Activities</h6>
+                            <table id="VI-B" class="table">
+                                <thead>
+                                    <th>Extension Activities</th>
+                                    <th>Date of Extension Activity</th>
+                                    <th>Extentionist (provide the name of the involved faculties)</th>
+                                    <th>Total Number of Clientle/Beneficiaries</th>
+                                    <th>Partner Agency (if applicable)</th>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td class="text-end">
+                                            <button class="btn btn-sm btn-outline-success" onClick="addRow('VI-B', ['activity', 'date', 'extensionist', 'clientle', 'agency'])">Add Row</button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                @endif
+                @if (Auth::user()->designation == "EBA")
+                <div class="card-body">
+                    <div class="card">
+                        <div class="card-header">
+                            VII. Linkages and Fund Generation
+                        </div>
+                        <div class="card-body">
+                            <br>
+                            <h6 class="card-title">&nbsp&nbsp&nbspA. Linkages</h6>
+                            <table id="VII-A" class="table">
+                                <thead>
+                                    <th>Agency</th>
+                                    <th>Nature of Linkage (OJT Center, Immersion Partner, Funding Agency, Training Site, etc)</th>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td></td>
+                                        <td class="text-end">
+                                            <button class="btn btn-sm btn-outline-success" onClick="addRow('VII-A', ['agency', 'nature'])">Add Row</button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <br>
+                            <h6 class="card-title">&nbsp&nbsp&nbspB. Fund Generation</h6>
+                            <table id="VII-B" class="table">
+                                <thead>
+                                    <th>Income Generating Project</th>
+                                    <th>Amount Generated</th>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td class="text-end">
+                                            <button class="btn btn-sm btn-outline-success" onClick="addRow('VII-B', ['project', 'amount'])">Add Row</button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                @endif
+                <div class="card-body">
+                    <div class="card">
+                        <div class="card-header">
+                            VIII. Infrastructure Development
+                        </div>
+                        <div class="card-body">
+                            <br>
+                            <h6 class="card-title">&nbsp&nbsp&nbspA. Linkages</h6>
+                            <table id="VIII-A" class="table">
+                                <thead>
+                                    <th>Infrastructure</th>
+                                    <th>Precentage of Development</th>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td></td>
+                                        <td class="text-end">
+                                            <button class="btn btn-sm btn-outline-success" onClick="addRow('VIII-A', ['infrastructure', 'percentage'])">Add Row</button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <!-- <ul class="list-group list-group-flush">
+                    <li class="list-group-item"></li>
+                </ul> -->
             </div>
         </div>
     </div>

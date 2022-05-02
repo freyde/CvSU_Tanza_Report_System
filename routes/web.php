@@ -31,6 +31,8 @@ Route::get('/years/add', [App\Http\Controllers\ReportController::class, 'addYear
 Route::post('/years/add/save', [App\Http\Controllers\ReportController::class, 'saveYear'])->name('save.year')->middleware('is_admin');
 Route::post('/years/update', [App\Http\Controllers\ReportController::class, 'updateYear'])->name('update.year')->middleware('is_admin');
 
+Route::get('/designatons', [App\Http\Controllers\ReportController::class, 'viewDesignations'])->name('designations')->middleware('is_admin');
+
 
 // User Routes
 Route::get('/report/form', [App\Http\Controllers\ReportController::class, 'viewReportForm'])->name('report.form')->middleware('is_user', 'verified');

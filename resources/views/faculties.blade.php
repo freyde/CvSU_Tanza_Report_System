@@ -70,49 +70,14 @@
                                 <td>
                                 <div class="col">
                                     <select class="custom-select" id="desig{{ $user->id }}" name="designation">
-                                        @if ($user->designation == 'none')
-                                            <option selected value="none">None</option>
-                                            <option value="Curriculum">Curriculum</option>
-                                            <option value="Extension">Extension</option>
-                                            <option value="HR">Human Resource</option>
-                                            <option value="OSAs">Office of Student Affairs</option>
-                                            <option value="Registrar">Registrar</option>
-                                        @elseif ($user->designation == 'Curriculum')
-                                            <option value="none">None</option>
-                                            <option selected value="Curriculum">Curriculum</option>
-                                            <option value="Extension">Extension</option>
-                                            <option value="HR">Human Resource</option>
-                                            <option value="OSAs">Office of Student Affairs</option>
-                                            <option value="Registrar">Registrar</option>
-                                        @elseif ($user->designation == 'Extension')
-                                            <option value="none">None</option>
-                                            <option value="Curriculum">Curriculum</option>
-                                            <option selected value="Extension">Extension</option>
-                                            <option value="HR">Human Resource</option>
-                                            <option value="OSAs">Office of Student Affairs</option>
-                                            <option value="Registrar">Registrar</option>
-                                        @elseif ($user->designation == 'HR')
-                                            <option value="none">None</option>
-                                            <option value="Curriculum">Curriculum</option>
-                                            <option value="Extension">Extension</option>
-                                            <option selected value="HR">Human Resource</option>
-                                            <option value="OSAs">Office of Student Affairs</option>
-                                            <option value="Registrar">Registrar</option>
-                                        @elseif ($user->designation == 'OSAs')
-                                            <option value="none">None</option>
-                                            <option value="Curriculum">Curriculum</option>
-                                            <option value="Extension">Extension</option>
-                                            <option value="HR">Human Resource</option>
-                                            <option selected value="OSAs">Office of Student Affairs</option>
-                                            <option value="Registrar">Registrar</option>
-                                        @else
-                                            <option value="none">None</option>
-                                            <option value="Curriculum">Curriculum</option>
-                                            <option value="Extension">Extension</option>
-                                            <option value="HR">Human Resource</option>
-                                            <option value="OSAs">Office of Student Affairs</option>
-                                            <option selected value="Registrar">Registrar</option>
-                                        @endif
+                                        <option value="none">None</option>
+                                        @foreach ($designations as $designation)
+                                            @if($designation->value == $user->designation) 
+                                                <option selected value="{{ $designation->value}}">{{ $designation->name }}</option>
+                                            @else
+                                                <option value="{{ $designation->value}}">{{ $designation->name }}</option>
+                                            @endif
+                                        @endforeach
                                     </select>
                                 </div>
 
