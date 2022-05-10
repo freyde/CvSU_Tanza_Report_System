@@ -99,4 +99,20 @@ class ReportController extends Controller
 
         return view('reportForm');
     }
+
+    function saveReport(Request $request) {
+        $year = DB::table('year');
+
+        DB::table('accreditation')->insert([
+            'id' => 'aw',
+            // 'program' => $request->program-I-A,
+            // 'date' => $request->date-I-A,
+            // 'level' => $request->level-I-A,
+            'program' => 'BSIT',
+            'date' => '1-1-1991',
+            'level' => '1',
+        ]);
+
+        return redirect()->route('home');
+    }
 }
