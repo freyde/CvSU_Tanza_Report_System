@@ -104,13 +104,13 @@ class ReportController extends Controller
         $year = DB::table('year');
 
         DB::table('accreditation')->insert([
-            'id' => 'aw',
-            // 'program' => $request->program-I-A,
-            // 'date' => $request->date-I-A,
-            // 'level' => $request->level-I-A,
-            'program' => 'BSIT',
-            'date' => '1-1-1991',
-            'level' => '1',
+            'id' => 2,
+            'program' => $request->program_IA,
+            'date' => $request->date_IA,
+            'level' => $request->level_IA,
+            // 'program' => 'BSIT',
+            // 'date' => '2022-04-20',
+            // 'level' => '1',
         ]);
 
         return redirect()->route('home');

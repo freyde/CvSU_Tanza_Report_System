@@ -16,6 +16,7 @@
                     Curriculum
                  -->
                 <form action="{{ route('report.save') }}" method="post">
+                    @csrf
                     @if (Auth::user()->designation == "Curriculum")
                     <div class="card-body">
                         <div class="card">
@@ -25,7 +26,7 @@
                             <div class="card-body">
                                 <br>
                                 <h6 class="card-title">&nbsp&nbsp&nbspA. Accreditation</h6>
-                                <table id="I-A" class="table">
+                                <table id="IA" class="table">
                                     <thead>
                                         <th>Program</th>
                                         <th>Visit Dates</th>
@@ -36,14 +37,14 @@
                                             <td></td>
                                             <td></td>
                                             <td class="text-end">
-                                                <button type="button" class="btn btn-sm btn-outline-success" onClick="addRow('I-A', ['program', 'date', 'level'])">Add Row</button>
+                                                <button type="button" class="btn btn-sm btn-outline-success" onClick="addRow('IA', ['program', 'date', 'level'])">Add Row</button>
                                             </td>
                                         </tr>
                                     </tbody>
                                 </table>
                                 <br>
                                 <h6 class="card-title">&nbsp&nbsp&nbspB. Government Recognition</h6>
-                                <table id="I-B" class="table">
+                                <table id="IB" class="table">
                                     <thead>
                                         <th>Program with CoPC</th>
                                         <th>Date of Certificatre of Compliance Received</th>
@@ -52,14 +53,14 @@
                                         <tr>
                                             <td></td>
                                             <td class="text-end">
-                                                <button type="button" class="btn btn-sm btn-outline-success" onClick="addRow('I-B', ['program', 'date'])">Add Row</button>
+                                                <button type="button" class="btn btn-sm btn-outline-success" onClick="addRow('IB', ['program', 'date'])">Add Row</button>
                                             </td>
                                         </tr>
                                     </tbody>
                                 </table>
                                 <br>
                                 <h6 class="card-title">&nbsp&nbsp&nbspC. Licensure</h6>
-                                <table id="I-C" class="table">
+                                <table id="IC" class="table">
                                     <thead>
                                         <th class="align-middle">Licensure Examination</th>
                                         <th>CvSU Passing Percentage <br> (First Time Takers)</th>
@@ -70,7 +71,7 @@
                                             <td></td>
                                             <td></td>
                                             <td class="text-end">
-                                                <button type="button" class="btn btn-sm btn-outline-success" onClick="addRow('I-C', ['exam', 'cvsu', 'natl'])">Add Row</button>
+                                                <button type="button" class="btn btn-sm btn-outline-success" onClick="addRow('IC', ['exam', 'cvsu', 'natl'])">Add Row</button>
                                             </td>
                                         </tr>
                                     </tbody>
@@ -92,7 +93,7 @@
                             <div class="card-body">
                                 <br>
                                 <h6 class="card-title">&nbsp&nbsp&nbspA. Enrolment</h6>
-                                <table id="II-A" class="table">
+                                <table id="IIA" class="table">
                                     <thead>
                                         <th>Program</th>
                                         <th>Major</th>
@@ -103,14 +104,14 @@
                                             <td></td>
                                             <td></td>
                                             <td class="text-end">
-                                                <button type="button" class="btn btn-sm btn-outline-success" onClick="addRow('II-A', ['program', 'major', 'enrollee'])">Add Row</button>
+                                                <button type="button" class="btn btn-sm btn-outline-success" onClick="addRow('IIA', ['program', 'major', 'enrollee'])">Add Row</button>
                                             </td>
                                         </tr>
                                     </tbody>
                                 </table>
                                 <br>
                                 <h6 class="card-title">&nbsp&nbsp&nbspB. Foreign Students</h6>
-                                <table id="II-B" class="table">
+                                <table id="IIB" class="table">
                                     <thead>
                                         <th>Name</th>
                                         <th>Nationality</th>
@@ -121,14 +122,14 @@
                                             <td></td>
                                             <td></td>
                                             <td class="text-end">
-                                                <button type="button" class="btn btn-sm btn-outline-success" onClick="addRow('II-B', ['name', 'nationality', 'program'])">Add Row</button>
+                                                <button type="button" class="btn btn-sm btn-outline-success" onClick="addRow('IIB', ['name', 'nationality', 'program'])">Add Row</button>
                                             </td>
                                         </tr>
                                     </tbody>
                                 </table>
                                 <br>
                                 <h6 class="card-title">&nbsp&nbsp&nbspC. Graduates</h6>
-                                <table id="II-C" class="table">
+                                <table id="IIC" class="table">
                                     <thead>
                                         <th>Program</th>
                                         <th>Number of Graduates</th>
@@ -137,7 +138,7 @@
                                         <tr>
                                             <td></td>
                                             <td class="text-end">
-                                                <button type="button" class="btn btn-sm btn-outline-success" onClick="addRow('II-C', ['program', 'graduates'])">Add Row</button>
+                                                <button type="button" class="btn btn-sm btn-outline-success" onClick="addRow('IIC', ['program', 'graduates'])">Add Row</button>
                                             </td>
                                         </tr>
                                     </tbody>
