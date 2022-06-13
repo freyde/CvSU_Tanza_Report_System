@@ -46,7 +46,6 @@ class ReportController extends Controller
             ->orderBy('year', 'asc')
             ->get();
         return view('years', ['years' => $years]);
-        // return view('years');
     }
 
     function addYear() {
@@ -96,11 +95,17 @@ class ReportController extends Controller
 
 
     function viewReportForm() {
-
-        return view('reportForm');
+        $activeYear = DB::table('year')
+            ->where('status', '=', 'active')
+            ->value('id');
+            // ->get();
+        return view('reportForm', ['activeYear' => $activeYear]);
+        // return view('reportForm');
     }
 
     function saveReport(Request $request) {
+        $userID = $request->userID;
+        $activeYear = $request->activeYear;
         $year = DB::table('year');
 
         DB::table('accreditation')->insert([
