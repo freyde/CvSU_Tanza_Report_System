@@ -63,7 +63,7 @@ function addRow(tbl_Id, fields) {
     var table = document.getElementById(tbl_Id);
     var row = table.insertRow(1);
     for(var a = fields.length-1; a >= 0; a--) {
-        row.insertCell(0).innerHTML = "<input type='text' class='form-control' id='"+ fields[a] +"_"+ tbl_Id +"' name='"+ fields[a] +"_"+ tbl_Id +"'>";
+        row.insertCell(0).innerHTML = "<input type='text' class='form-control' id='"+ fields[a] +"_"+ tbl_Id +"' name='"+ fields[a] +"_"+ tbl_Id +"'[]>";
     }
     
     

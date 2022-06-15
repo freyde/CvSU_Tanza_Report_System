@@ -28,6 +28,6 @@ class CreateYearTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('year');
+        // Schema::dropIfExists('year');
     }
 }

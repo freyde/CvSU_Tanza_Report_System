@@ -16,8 +16,8 @@
                     Curriculum
                  -->
                 <form action="{{ route('report.save') }}" method="post">
-                    <input type="hidden" id="userID" value="{{Auth::user()->id}}"> 
-                    <input type="hidden" id="userID" value="{{$activeYear}}"> 
+                    <input type="hidden" id="userID" name="userID" value="{{Auth::user()->id}}"> 
+                    <input type="hidden" id="activeYear" name="activeYear" value="{{$activeYear}}"> 
                     @csrf
                     @if (Auth::user()->designation == "Curriculum")
                     <div class="card-body">

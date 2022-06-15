@@ -27,6 +27,6 @@ class CreateDesignationTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('designation');
+        // Schema::dropIfExists('designation');
     }
 }

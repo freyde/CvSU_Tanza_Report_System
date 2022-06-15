@@ -107,17 +107,23 @@ class ReportController extends Controller
         $userID = $request->userID;
         $activeYear = $request->activeYear;
         $year = DB::table('year');
+        $reportID = $userID .'_'. $activeYear;
+        error_log($request->program_IA);
 
-        DB::table('accreditation')->insert([
-            'id' => 2,
-            'program' => $request->program_IA,
-            'date' => $request->date_IA,
-            'level' => $request->level_IA,
+        foreach($request->program_IA as $index => $id) {
+            error_log($index);
+        }
+        // if($request->program_IA != "")
+        // DB::table('accreditation')->insert([
+        //     'id' => $reportID,
+        //     'program' => $request->program_IA,
+        //     'date' => $request->date_IA,
+        //     'level' => $request->level_IA,
             // 'program' => 'BSIT',
             // 'date' => '2022-04-20',
             // 'level' => '1',
-        ]);
+        // ]);
 
-        return redirect()->route('home');
+        // return redirect()->route('home');
     }
 }
