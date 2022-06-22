@@ -14,7 +14,9 @@ class CreateReportTable extends Migration
     public function up()
     {
         Schema::create('seminar', function (Blueprint $table) {
-            $table->string('id');
+            $table->id();
+            $table->string('uid');
+            $table->string('year');
             $table->string('type');
             $table->string('title');
             $table->string('venue');
@@ -22,7 +24,9 @@ class CreateReportTable extends Migration
         });
 
         Schema::create('recognition', function (Blueprint $table) {
-            $table->string('id');
+            $table->id();
+            $table->string('uid');
+            $table->string('year');
             $table->string('type');
             $table->string('award');
             $table->string('agency');
@@ -31,12 +35,16 @@ class CreateReportTable extends Migration
         });
 
         Schema::create('competency', function (Blueprint $table) {
-            $table->string('id');
+            $table->id();
+            $table->string('uid');
+            $table->string('year');
             $table->string('type');
         });
 
         Schema::create('presentation', function (Blueprint $table) {
-            $table->string('id');
+            $table->id();
+            $table->string('uid');
+            $table->string('year');
             $table->string('type');
             $table->string('name');
             $table->string('title');
@@ -45,7 +53,9 @@ class CreateReportTable extends Migration
         });
 
         Schema::create('publication', function (Blueprint $table) {
-            $table->string('id');
+            $table->id();
+            $table->string('uid');
+            $table->string('year');
             $table->string('title');
             $table->string('article');
             $table->string('publisher');
@@ -53,27 +63,35 @@ class CreateReportTable extends Migration
         });
 
         Schema::create('enrolment', function (Blueprint $table) {
-            $table->string('id');
+            $table->id();
+            $table->string('uid');
+            $table->string('year');
             $table->string('program');
             $table->string('major');
             $table->string('enrollee');
         });
 
         Schema::create('accreditation', function (Blueprint $table) {
-            $table->string('id');
+            $table->id();
+            $table->string('uid');
+            $table->string('year');
             $table->string('program');
             $table->timestamp('date');
             $table->string('level');
         });
 
         Schema::create('government', function (Blueprint $table) {
-            $table->string('id');
+            $table->id();
+            $table->string('uid');
+            $table->string('year');
             $table->string('program');
             $table->timestamp('date');
         });
 
         Schema::create('licensure', function (Blueprint $table) {
-            $table->string('id');
+            $table->id();
+            $table->string('uid');
+            $table->string('year');
             $table->string('examination');
             $table->string('cvsu');
             $table->string('national');

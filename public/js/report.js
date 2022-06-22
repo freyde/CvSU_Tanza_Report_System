@@ -61,9 +61,9 @@ function updateYear(year, quarter) {
 function addRow(tbl_Id, fields) {
     console.log(tbl_Id);
     var table = document.getElementById(tbl_Id);
-    var row = table.insertRow(1);
+    var row = table.insertRow(table.rows.length - 1);
     for(var a = fields.length-1; a >= 0; a--) {
-        row.insertCell(0).innerHTML = "<input type='text' class='form-control' id='"+ fields[a] +"_"+ tbl_Id +"' name='"+ fields[a] +"_"+ tbl_Id +"'[]>";
+        row.insertCell(0).innerHTML = "<input type='text' class='form-control' required id='"+ fields[a] +"_"+ tbl_Id +"' name='"+ fields[a] +"_"+ tbl_Id +"[]'>";
     }
     
     

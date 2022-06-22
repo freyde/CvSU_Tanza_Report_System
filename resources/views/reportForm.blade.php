@@ -154,9 +154,33 @@
                                     </thead>
                                     <tbody>
                                         <tr>
-                                            <td></td>
-                                            <td class="text-end">
-                                                <button type="button" class="btn btn-sm btn-outline-success" onClick="addRow('II-D', ['program', 'scholars'])">Add Row</button>
+                                            <td>Academic Scholarship</td>
+                                            <td>
+                                                <input type="text" id="academic_IID" class="form-control">
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Financial Assistance</td>
+                                            <td>
+                                                <input type="text" id="assistance" class="form-control">
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Government</td>
+                                            <td>
+                                                <input type="text" id="government_IID" class="form-control">
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Service Scholarship</td>
+                                            <td>
+                                                <input type="text" id="service_IID" class="form-control">
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Private Scholarship</td>
+                                            <td>
+                                                <input type="text" id="private_IID" class="form-control">
                                             </td>
                                         </tr>
                                     </tbody>
@@ -429,7 +453,6 @@
                         </div>
                     </div>
                     @endif
-
                     <div class="card-body">
                         <div class="card">
                             <div class="card-header">
@@ -473,7 +496,7 @@
                                     </tbody>
                                 </table>
                                 <br>
-                                <h6 class="card-title">&nbsp&nbsp&nbspC. Reseach Project Funded by Outside Agency</h6>
+                                <h6 class="card-title">&nbsp&nbsp&nbspC. Research Project Funded by Outside Agency</h6>
                                 <table id="V-C" class="table">
                                     <thead>
                                         <th>Title of the Study</th>
@@ -588,6 +611,7 @@
                         </div>
                     </div>
                     @endif
+                    @if(Auth::user()->designation == "Custodian")
                     <div class="card-body">
                         <div class="card">
                             <div class="card-header">
@@ -613,7 +637,7 @@
                             </div>
                         </div>
                     </div>
-
+                    @endif
                     <button type="submit" class="btn btn-primary">
                         {{ __('Add') }}
                     </button>

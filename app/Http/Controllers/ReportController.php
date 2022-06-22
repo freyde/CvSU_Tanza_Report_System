@@ -104,26 +104,194 @@ class ReportController extends Controller
     }
 
     function saveReport(Request $request) {
-        $userID = $request->userID;
+        $uid = $request->userID;
         $activeYear = $request->activeYear;
         $year = DB::table('year');
-        $reportID = $userID .'_'. $activeYear;
-        error_log($request->program_IA);
-
-        foreach($request->program_IA as $index => $id) {
-            error_log($index);
+        //--------------------------------Curriculum---------------------------------
+        // Accreditation Table Update
+        if($request->program_IA != null) {
+            foreach($request->program_IA as $index => $id) {
+                DB::table('accreditation')->insert([
+                    'uid' => $uid,
+                    'year' => $activeYear,
+                    'program' => $request->program_IA[$index],
+                    'date' => $request->date_IA[$index],
+                    'level' => $request->level_IA[$index],
+                ]);
+            }
         }
-        // if($request->program_IA != "")
-        // DB::table('accreditation')->insert([
-        //     'id' => $reportID,
-        //     'program' => $request->program_IA,
-        //     'date' => $request->date_IA,
-        //     'level' => $request->level_IA,
-            // 'program' => 'BSIT',
-            // 'date' => '2022-04-20',
-            // 'level' => '1',
-        // ]);
+        // Government Recognition Table Update
+        if($request->program_IB != null) {
+            foreach($request->program_IB as $index => $id) {
+                DB::table('government')->insert([
+                    'uid' => $uid,
+                    'year' => $activeYear,
+                    'program' => $request->program_IB[$index],
+                    'date' => $request->date_IB[$index],
+                ]);
+            }
+        }
+        // Licensure Table Upddate
+        if($request->exam_IC != null) {
+            foreach($request->exam_IC as $index => $id) {
+                DB::table('licensure')->insert([
+                    'uid' => $uid,
+                    'year' => $activeYear,
+                    'examination' => $request->exam_IC[$index],
+                    'cvsu' => $request->cvsu_IC[$index],
+                    'national' => $request->natl_IC[$index],
+                ]);
+            }
+        }
 
-        // return redirect()->route('home');
+        //-----------------------------OSAS------------------------------------------
+        // Enrolment Table Update
+        if($request->program_IIA != null) {
+            foreach($request->program_IIA as $index => $id) {
+                DB::table('enrolment')->insert([
+                    'uid' => $uid,
+                    'year' => $activeYear,
+                    'program' => $request->program_IIA[$index],
+                    'major' => $request->major_IIA[$index],
+                    'enrolle' => $request->enrolle_IIA[$index],
+                ]);
+            }
+        }
+        // Foreign_Students Table Update
+        if($request->name_IIB != null) {
+            foreach($request->name_IIB as $index => $id) {
+                DB::table('foreign_students')->insert([
+                    'uid' => $uid,
+                    'year' => $activeYear,
+                    'name' => $request->name_IIB[$index],
+                    'nationality' => $request->nationality_IIB[$index],
+                    'program' => $request->program_IIB[$index],
+                ]);
+            }
+        }
+        //Graduates Table Update
+        if($request->name_IIC != null) {
+            foreach($request->name_IIC as $index => $id) {
+                DB::table('graduates')->insert([
+                    'uid' => $uid,
+                    'year' => $activeYear,
+                    'program' => $request->program_IIC[$index],
+                    'graduates' => $request->graduates_IIC[$index],
+                ]);
+            }
+        }
+        //Scholarships_Students Table Update
+        DB::table('scholarships_student')->insert([
+            'uid' => $uid,
+            'year' => $activeYear,
+            'academic' => $request->academic_IID,
+            'assistance' => $request->assistance_IID,
+            'government' => $request->government_IID,
+            'service' => $request->service_IID,
+            'private' => $request->private_IID,
+        ]);
+        //Recognition Student Table Update
+        if($request->award_IIE != null) {
+            foreach($request->award_IIE as $index => $id) {
+                DB::table('recognition_student')->insert([
+                    'uid' => $uid,
+                    'year' => $activeYear,
+                    'award' => $request->award_IIE[$index],
+                    'agency' => $request->agency_IIE[$index],
+                    'grantee' => $request->grantee_IIE[$index],
+                ]);
+            }
+        }
+        //Competency Student Table Update
+        if($request->program_IIF != null) {
+            foreach($request->program_IIF as $index => $id) {
+                DB::table('recognition_student')->insert([
+                    'uid' => $uid,
+                    'year' => $activeYear,
+                    'program' => $request->program_IIF[$index],
+                    'competency' => $request->competency_IIF[$index],
+                    'students' => $request->students_IIF[$index],
+                ]);
+            }
+        }
+        // Organizations Student Table Update
+        if($request->name_IVA != null) {
+            foreach($request->name_IVA as $index => $id) {
+                DB::table('organization_student')->insert([
+                    'uid' => $uid,
+                    'year' => $activeYear,
+                    'name' => $request->name_IVA[$index],
+                ]);
+            }
+        }
+
+        //--------------------------------Faculty-------------------------------
+
+        // Seminar Table Update
+        if($request->type_IIIA != null) {
+            foreach($request->type_IIIA as $index => $id) {
+                DB::table('seminar')->insert([
+                    'uid' => $uid,
+                    'year' => $activeYear,
+                    'type' => $request->type_IIIA[$index],
+                    'title' => $request->title_IIIA[$index],
+                    'venue' => $request->venue_IIIA[$index],
+                    'date' => $request->date_IIIA[$index],
+                ]);
+            }
+        }
+        // Recognition Table Update
+        if($request->type_IIIB != null) {
+            foreach($request->type_IIIB as $index => $id) {
+                DB::table('recognition')->insert([
+                    'uid' => $uid,
+                    'year' => $activeYear,
+                    'type' => $request->type_IIIB[$index],
+                    'award' => $request->award_IIIB[$index],
+                    'agency' => $request->agency_IIIB[$index],
+                    'venue' => $request->venue_IIIB[$index],
+                    'date' => $request->date_IIIB[$index],
+                ]);
+            }
+        }
+        // Competency Table Update
+        if($request->type_IIIC != null) {
+            foreach($request->type_IIIC as $index => $id) {
+                DB::table('competency')->insert([
+                    'uid' => $uid,
+                    'year' => $activeYear,
+                    'type' => $request->type_IIIC[$index],
+                ]);
+            }
+        }
+        // Presentation Table Update
+        if($request->type_IIID != null) {
+            foreach($request->type_IIID as $index => $id) {
+                DB::table('presentation')->insert([
+                    'uid' => $uid,
+                    'year' => $activeYear,
+                    'type' => $request->type_IIID[$index],
+                    'conference' => $request->conference_IIID[$index],
+                    'title' => $request->title_IIID[$index],
+                    'venue' => $request->venue_IIID[$index],
+                    'date' => $request->date_IIID[$index],
+                ]);
+            }
+        }
+        // Publication Table Update
+        if($request->type_IIIE != null) {
+            foreach($request->title_IIIE as $index => $id) {
+                DB::table('publication')->insert([
+                    'uid' => $uid,
+                    'year' => $activeYear,
+                    'title' => $request->title_IIIE[$index],
+                    'article' => $request->article_IIIE[$index],
+                    'publisher' => $request->publisher_IIIE[$index],
+                    'number' => $request->number_IIIE[$index],
+                ]);
+            }
+        }
+
+        return redirect()->route('home');
     }
 }
