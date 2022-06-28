@@ -279,7 +279,7 @@ class ReportController extends Controller
             }
         }
         // Publication Table Update
-        if($request->type_IIIE != null) {
+        if($request->title_IIIE != null) {
             foreach($request->title_IIIE as $index => $id) {
                 DB::table('publication')->insert([
                     'uid' => $uid,
@@ -291,6 +291,115 @@ class ReportController extends Controller
                 ]);
             }
         }
+
+        //-----------------------------Research------------------------------__
+
+        // Ongoing Research Table Update
+        if($request->title_VA != null) {
+            foreach($request->title_VA as $index => $id) {
+                DB::table('ongoing_research')->insert([
+                    'uid' => $uid,
+                    'year' => $activeYear,
+                    'title' => $request->title_VA[$index],
+                    'date' => $request->date_VA[$index],
+                ]);
+            }
+        }
+
+        // Completed Research Table Update
+        if($request->title_VB != null) {
+            foreach($request->title_VB as $index => $id) {
+                DB::table('completed_research')->insert([
+                    'uid' => $uid,
+                    'year' => $activeYear,
+                    'title' => $request->title_VB[$index],
+                    'date' => $request->date_VB[$index],
+                ]);
+            }
+        }
+
+        // Outside Research Table Update
+        if($request->title_VC != null) {
+            foreach($request->title_VC as $index => $id) {
+                DB::table('outside_research')->insert([
+                    'uid' => $uid,
+                    'year' => $activeYear,
+                    'title' => $request->title_VC[$index],
+                    'sponsor' => $request->sponsor_VC[$index],
+                    'date' => $request->date_VC[$index],
+                ]);
+            }
+        }
+
+
+        //--------------------------------------Extension-------------------------------
+        
+        // Extension Project Table Update
+        if($request->name_VIA != null) {
+            foreach($request->name_VIA as $index => $id) {
+                DB::table('extension_project')->insert([
+                    'uid' => $uid,
+                    'year' => $activeYear,
+                    'name' => $request->name_VIA[$index],
+                ]);
+            }
+        }
+
+        // Extension Activities Table Update
+        if($request->activities_VIB != null) {
+            foreach($request->activities_VIB as $index => $id) {
+                DB::table('extension_acivities')->insert([
+                    'uid' => $uid,
+                    'year' => $activeYear,
+                    'activities' => $request->activities_VIB[$index],
+                    'date' => $request->date_VIB[$index],
+                    'extensionist' => $request->extensionist_VIB[$index],
+                    'clientle' => $request->clientle_VIB[$index],
+                    'agency' => $request->agency_VIB[$index],
+                ]);
+            }
+        }
+
+        //-------------------------------------EBA-------------------------------
+
+        // Linkages Table Update
+        if($request->agency_VIIA != null) {
+            foreach($request->agency_VIIA as $index => $id) {
+                DB::table('linkages')->insert([
+                    'uid' => $uid,
+                    'year' => $activeYear,
+                    'agency' => $request->agency_VIIA[$index],
+                    'nature' => $request->nature_VIIA[$index],
+                ]);
+            }
+        }
+
+        // Fund Generation Table Update
+        if($request->project_VIIB != null) {
+            foreach($request->project_VIIB as $index => $id) {
+                DB::table('fund_generation')->insert([
+                    'uid' => $uid,
+                    'year' => $activeYear,
+                    'project' => $request->project_VIIB[$index],
+                    'amount' => $request->amount_VIIB[$index],
+                ]);
+            }
+        }
+
+        //-------------------------------Custodian--------------------------------
+
+        // Infrastructure Table Update
+        if($request->infrastructure_VIIIA != null) {
+            foreach($request->infrastructure_VIIIA as $index => $id) {
+                DB::table('infrastructure')->insert([
+                    'uid' => $uid,
+                    'year' => $activeYear,
+                    'infrastructure' => $request->infrastructure_VIIIA[$index],
+                    'precentage' => $request->precentage_VIIIA[$index],
+                ]); 
+            }
+        }
+
 
         return redirect()->route('home');
     }

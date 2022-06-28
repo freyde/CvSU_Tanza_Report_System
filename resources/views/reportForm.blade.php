@@ -464,15 +464,13 @@
                                 <table id="V-A" class="table">
                                     <thead>
                                         <th>Title of the Study</th>
-                                        <th>Researcher/s</th>
                                         <th>Target Date of Completion</th>
                                     </thead>
                                     <tbody>
                                         <tr>
                                             <td></td>
-                                            <td></td>
                                             <td class="text-end">
-                                                <button type="button" class="btn btn-sm btn-outline-success" onClick="addRow('V-A', ['title', 'researchers', 'date'])">Add Row</button>
+                                                <button type="button" class="btn btn-sm btn-outline-success" onClick="addRow('V-A', ['title', 'date'])">Add Row</button>
                                             </td>
                                         </tr>
                                     </tbody>
@@ -482,7 +480,6 @@
                                 <table id="V-B" class="table">
                                     <thead>
                                         <th>Title of the Study</th>
-                                        <th>Researcher/s</th>
                                         <th>Date of Completion</th>
                                     </thead>
                                     <tbody>
@@ -490,7 +487,7 @@
                                             <td></td>
                                             <td></td>
                                             <td class="text-end">
-                                                <button type="button" class="btn btn-sm btn-outline-success" onClick="addRow('V-B', ['title', 'researchers', 'date'])">Add Row</button>
+                                                <button type="button" class="btn btn-sm btn-outline-success" onClick="addRow('V-B', ['title', 'date'])">Add Row</button>
                                             </td>
                                         </tr>
                                     </tbody>
@@ -500,7 +497,6 @@
                                 <table id="V-C" class="table">
                                     <thead>
                                         <th>Title of the Study</th>
-                                        <th>Researcher/s</th>
                                         <th>Sponsor Agency</th>
                                         <th>Date of Completion</th>
                                     </thead>
@@ -510,7 +506,7 @@
                                             <td></td>
                                             <td></td>
                                             <td class="text-end">
-                                                <button type="button" class="btn btn-sm btn-outline-success" onClick="addRow('V-C', ['title', 'researchers', 'sponsor', 'date'])">Add Row</button>
+                                                <button type="button" class="btn btn-sm btn-outline-success" onClick="addRow('V-C', ['title', 'sponsor', 'date'])">Add Row</button>
                                             </td>
                                         </tr>
                                     </tbody>
