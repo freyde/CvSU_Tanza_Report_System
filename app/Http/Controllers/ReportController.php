@@ -400,6 +400,10 @@ class ReportController extends Controller
             }
         }
 
+        DB::table('submission')->insert([
+            'uid' => $uid,
+            'year' => $activeYear,
+        ]);
 
         return redirect()->route('home');
     }

@@ -13,13 +13,13 @@
                     </div>
                 </div>
                 <!-- 
-                    Curriculum
+                --------------------------------------------------------Curriculum----------------------------------------
                  -->
                 <form action="{{ route('report.save') }}" method="post">
                     <input type="hidden" id="userID" name="userID" value="{{Auth::user()->id}}"> 
                     <input type="hidden" id="activeYear" name="activeYear" value="{{$activeYear}}"> 
                     @csrf
-                    @if (Auth::user()->designation == "Curriculum")
+                    @if (Auth::user()->designation == "Curriculum" || Auth::user()->designation == "Admin")
                     <div class="card-body">
                         <div class="card">
                             <div class="card-header">
@@ -84,9 +84,9 @@
                     @endif
 
                     <!-- 
-                        OSAS
+                    --------------------------------------------------OSAS-----------------------------------------------
                     -->
-                    @if (Auth::user()->designation == "OSAs")
+                    @if (Auth::user()->designation == "OSAs" || Auth::user()->designation == "Admin")
                     <div class="card-body">
                         <div class="card">
                             <div class="card-header">
@@ -226,7 +226,7 @@
                     </div>
                     @endif
                     <!-- 
-                        Faculty 
+                    -----------------------------------------------------Faculty ------------------------------------------------------
                     -->
                     <div class="card-body">
                         <div class="card">
@@ -426,9 +426,10 @@
                     </div>
                     
                     <!-- 
-                        OSAS
+                    ---------------------------------------------OSAs----------------------------------------------
                     -->
-                    @if (Auth::user()->designation == "OSAs")
+
+                    @if (Auth::user()->designation == "OSAs" || Auth::user()->designation == "Admin")
                     <div class="card-body">
                         <div class="card">
                             <div class="card-header">
@@ -453,6 +454,8 @@
                         </div>
                     </div>
                     @endif
+
+
                     <div class="card-body">
                         <div class="card">
                             <div class="card-header">
@@ -514,7 +517,12 @@
                             </div>
                         </div>
                     </div>
-                    @if (Auth::user()->designation == "Extension")
+                    
+                    <!-- 
+                    --------------------------------------------Extension------------------------------------- 
+                    -->
+
+                    @if (Auth::user()->designation == "Extension" || Auth::user()->designation == "Admin")
                     <div class="card-body">
                         <div class="card">
                             <div class="card-header">
@@ -561,7 +569,12 @@
                         </div>
                     </div>
                     @endif
-                    @if (Auth::user()->designation == "EBA")
+
+                    <!-- 
+                    ----------------------------------------------------EBA---------------------------------------------- 
+                    -->
+
+                    @if (Auth::user()->designation == "EBA" || Auth::user()->designation == "Admin")
                     <div class="card-body">
                         <div class="card">
                             <div class="card-header">
@@ -607,7 +620,12 @@
                         </div>
                     </div>
                     @endif
-                    @if(Auth::user()->designation == "Custodian")
+
+                    <!-- 
+                    -------------------------------------------------Custodian----------------------------------------------- 
+                    -->
+
+                    @if(Auth::user()->designation == "Custodian" || Auth::user()->designation == "Admin")
                     <div class="card-body">
                         <div class="card">
                             <div class="card-header">
@@ -634,9 +652,18 @@
                         </div>
                     </div>
                     @endif
+
+                    @if (Auth::user()->designation != "Admin")
                     <button type="submit" class="btn btn-primary">
                         {{ __('Add') }}
                     </button>
+                    @endif
+
+
+                    <button type="submit" class="btn btn-primary">
+                        {{ __('Add') }}
+                    </button>
+
                 </form>
                 <!-- <ul class="list-group list-group-flush">
                     <li class="list-group-item"></li>
