@@ -156,31 +156,31 @@
                                         <tr>
                                             <td>Academic Scholarship</td>
                                             <td>
-                                                <input type="text" id="academic_IID" class="form-control">
+                                                <input type="text" id="academic_IID" name="academic_IID" class="form-control" placeholder="0">
                                             </td>
                                         </tr>
                                         <tr>
                                             <td>Financial Assistance</td>
                                             <td>
-                                                <input type="text" id="assistance" class="form-control">
+                                                <input type="text" id="assistance_IID" name="assistance_IID" class="form-control" placeholder="0">
                                             </td>
                                         </tr>
                                         <tr>
                                             <td>Government</td>
                                             <td>
-                                                <input type="text" id="government_IID" class="form-control">
+                                                <input type="text" id="government_IID" name="government_IID" class="form-control" placeholder="0">
                                             </td>
                                         </tr>
                                         <tr>
                                             <td>Service Scholarship</td>
                                             <td>
-                                                <input type="text" id="service_IID" class="form-control">
+                                                <input type="text" id="service_IID" name="service_IID" class="form-control" placeholder="0">
                                             </td>
                                         </tr>
                                         <tr>
                                             <td>Private Scholarship</td>
                                             <td>
-                                                <input type="text" id="private_IID" class="form-control">
+                                                <input type="text" id="private_IID" name="private_IID" class="form-control" placeholder="0">
                                             </td>
                                         </tr>
                                     </tbody>
@@ -338,7 +338,7 @@
                                             <td></td>
                                             <td></td>
                                             <td class="text-end">
-                                                <button type="button" class="btn btn-sm btn-outline-success" onClick="addRow('III-A', ['type', 'title', 'venue', 'date'])">Add Row</button>
+                                                <button type="button" class="btn btn-sm btn-outline-success" onClick="addRow2('III-A', ['type', 'title', 'venue', 'date'])">Add Row</button>
                                             </td>
                                         </tr>
                                     </tbody>
@@ -360,7 +360,7 @@
                                             <td></td>
                                             <td></td>
                                             <td class="text-end">
-                                                <button type="button" class="btn btn-sm btn-outline-success" onClick="addRow('III-B', ['type', 'award', 'agency', 'venue', 'date'])">Add Row</button>
+                                                <button type="button" class="btn btn-sm btn-outline-success" onClick="addRow2('III-B', ['type', 'award', 'agency', 'venue', 'date'])">Add Row</button>
                                             </td>
                                         </tr>
                                     </tbody>
@@ -396,7 +396,7 @@
                                             <td></td>
                                             <td></td>
                                             <td class="text-end">
-                                                <button type="button" class="btn btn-sm btn-outline-success" onClick="addRow('III-D', ['type', 'conference', 'title', 'venue', 'date'])">Add Row</button>
+                                                <button type="button" class="btn btn-sm btn-outline-success" onClick="addRow2('III-D', ['type', 'conference', 'title', 'venue', 'date'])">Add Row</button>
                                             </td>
                                         </tr>
                                     </tbody>
@@ -488,7 +488,6 @@
                                     <tbody>
                                         <tr>
                                             <td></td>
-                                            <td></td>
                                             <td class="text-end">
                                                 <button type="button" class="btn btn-sm btn-outline-success" onClick="addRow('V-B', ['title', 'date'])">Add Row</button>
                                             </td>
@@ -505,7 +504,6 @@
                                     </thead>
                                     <tbody>
                                         <tr>
-                                            <td></td>
                                             <td></td>
                                             <td></td>
                                             <td class="text-end">
@@ -606,9 +604,6 @@
                                     </thead>
                                     <tbody>
                                         <tr>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
                                             <td></td>
                                             <td class="text-end">
                                                 <button type="button" class="btn btn-sm btn-outline-success" onClick="addRow('VII-B', ['project', 'amount'])">Add Row</button>

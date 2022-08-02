@@ -153,7 +153,7 @@ class ReportController extends Controller
                     'year' => $activeYear,
                     'program' => $request->program_IIA[$index],
                     'major' => $request->major_IIA[$index],
-                    'enrolle' => $request->enrolle_IIA[$index],
+                    'enrollee' => $request->enrollee_IIA[$index],
                 ]);
             }
         }
@@ -181,14 +181,29 @@ class ReportController extends Controller
             }
         }
         //Scholarships_Students Table Update
+        if($request->academic_IID == null) $academic = 0;
+        else $academic = $request->academic_IID;
+        
+        if($request->assistance_IID == null) $assistance = 0;
+        else $assistance = $request->assistance_IID;
+
+        if($request->government_IID == null) $government = 0;
+        else $government = $request->government_IID;
+        
+        if($request->service_IID == null) $service = 0;
+        else $service = $request->service_IID;
+        
+        if($request->government_IID == null) $private = 0;
+        else $private = $request->government_IID;
+        
         DB::table('scholarships_student')->insert([
             'uid' => $uid,
             'year' => $activeYear,
-            'academic' => $request->academic_IID,
-            'assistance' => $request->assistance_IID,
-            'government' => $request->government_IID,
-            'service' => $request->service_IID,
-            'private' => $request->private_IID,
+            'academic' => $academic,
+            'assistance' => $assistance,
+            'government' => $government,
+            'service' => $service,
+            'private' => $private,
         ]);
         //Recognition Student Table Update
         if($request->award_IIE != null) {
@@ -406,5 +421,21 @@ class ReportController extends Controller
         ]);
 
         return redirect()->route('home');
+    }
+
+    function viewSubmittedReport() {
+        $reports = DB::table('submission')
+            ->orderBy('year', 'desc')
+            ->get();
+
+        $users = DB::table('users')
+            ->where('role', '!=', 'admin')
+            ->orderBy('name', 'asc')
+            ->get();
+
+        $quarters = DB::table('year')
+            ->get();
+
+        return view('adminReportList', ['reports' => $reports, 'users' => $users, 'years' => $quarters]);
     }
 }

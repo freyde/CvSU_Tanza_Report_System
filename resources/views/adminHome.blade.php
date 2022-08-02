@@ -13,6 +13,7 @@
                         <li class="list-group-item"><a href="{{ route('years') }}">{{ __('Set Academic Year/Quarter') }}</a></li>
                         <li class="list-group-item"><a href="{{ route('designations') }}">Designations</a></li>
                         <li class="list-group-item"><a href="">Email Reminder</a></li>
+                        <li class="list-group-item"><a href="{{ route('report.view') }}">View Reports</a></li>
                         <li class="list-group-item"><a href="{{ route('report.form') }}">View Form</a></li>
                     </ul>
                 </div>
