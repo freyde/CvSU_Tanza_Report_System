@@ -31,9 +31,5 @@ class CreateUsersSeeder extends Seeder
                 'designation'=>'none'
             ],
         ];
-  
-        foreach ($user as $key => $value) {
-            User::create($value);
-        }
     }
 }
