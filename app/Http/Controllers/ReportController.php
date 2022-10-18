@@ -170,8 +170,8 @@ class ReportController extends Controller
             }
         }
         //Graduates Table Update
-        if($request->name_IIC != null) {
-            foreach($request->name_IIC as $index => $id) {
+        if($request->program_IIC != null) {
+            foreach($request->program_IIC as $index => $id) {
                 DB::table('graduates')->insert([
                     'uid' => $uid,
                     'year' => $activeYear,
@@ -205,6 +205,7 @@ class ReportController extends Controller
             'service' => $service,
             'private' => $private,
         ]);
+
         //Recognition Student Table Update
         if($request->award_IIE != null) {
             foreach($request->award_IIE as $index => $id) {
@@ -220,7 +221,7 @@ class ReportController extends Controller
         //Competency Student Table Update
         if($request->program_IIF != null) {
             foreach($request->program_IIF as $index => $id) {
-                DB::table('recognition_student')->insert([
+                DB::table('competency_student')->insert([
                     'uid' => $uid,
                     'year' => $activeYear,
                     'program' => $request->program_IIF[$index],
@@ -361,12 +362,12 @@ class ReportController extends Controller
         }
 
         // Extension Activities Table Update
-        if($request->activities_VIB != null) {
-            foreach($request->activities_VIB as $index => $id) {
-                DB::table('extension_acivities')->insert([
+        if($request->activity_VIB != null) {
+            foreach($request->activity_VIB as $index => $id) {
+                DB::table('extension_activities')->insert([
                     'uid' => $uid,
                     'year' => $activeYear,
-                    'activities' => $request->activities_VIB[$index],
+                    'activity' => $request->activity_VIB[$index],
                     'date' => $request->date_VIB[$index],
                     'extensionist' => $request->extensionist_VIB[$index],
                     'clientle' => $request->clientle_VIB[$index],
@@ -410,7 +411,7 @@ class ReportController extends Controller
                     'uid' => $uid,
                     'year' => $activeYear,
                     'infrastructure' => $request->infrastructure_VIIIA[$index],
-                    'precentage' => $request->precentage_VIIIA[$index],
+                    'percentage' => $request->percentage_VIIIA[$index],
                 ]); 
             }
         }
@@ -420,22 +421,29 @@ class ReportController extends Controller
             'year' => $activeYear,
         ]);
 
-        return redirect()->route('home');
+        return redirect()->route('admin.home');
+
     }
 
     function viewSubmittedReport() {
+
+        $data = (array) null;
+
         $reports = DB::table('submission')
-            ->orderBy('year', 'desc')
             ->get();
 
         $users = DB::table('users')
-            ->where('role', '!=', 'admin')
+            // ->where('role', '!=', 'admin')
             ->orderBy('name', 'asc')
             ->get();
 
+        foreach ($reports as $report) {
+            // $num = $report->id;
+            array_push($data[0],  $report);
+        }
         $quarters = DB::table('year')
             ->get();
 
-        return view('adminReportList', ['reports' => $reports, 'users' => $users, 'years' => $quarters]);
+        return view('adminReportList', ['reports' => $reports, 'users' => $users, 'years' => $quarters, 'data' => $data]);
     }
 }

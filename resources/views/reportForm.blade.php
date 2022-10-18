@@ -49,7 +49,7 @@
                                 <table id="IB" class="table">
                                     <thead>
                                         <th>Program with CoPC</th>
-                                        <th>Date of Certificatre of Compliance Received</th>
+                                        <th>Date of Certificate of Compliance Received</th>
                                     </thead>
                                     <tbody>
                                         <tr>
@@ -147,7 +147,7 @@
                                 </table>
                                 <br>
                                 <h6 class="card-title">&nbsp&nbsp&nbspD. Scholarships</h6>
-                                <table id="II-D" class="table">
+                                <table id="IID" class="table">
                                     <thead>
                                         <th>Program</th>
                                         <th>Number of Scholars</th>
@@ -187,7 +187,7 @@
                                 </table>
                                 <br>
                                 <h6 class="card-title">&nbsp&nbsp&nbspE. Recognition and Awards of Students</h6>
-                                <table id="II-E" class="table">
+                                <table id="IIE" class="table">
                                     <thead>
                                         <th>Name of Recognition/Award</th>
                                         <th>Granting Agency/Institution</th>
@@ -198,14 +198,14 @@
                                             <td></td>
                                             <td></td>
                                             <td class="text-end">
-                                                <button type="button" class="btn btn-sm btn-outline-success" onClick="addRow('II-E', ['award', 'agency', 'grantee'])">Add Row</button>
+                                                <button type="button" class="btn btn-sm btn-outline-success" onClick="addRow('IIE', ['award', 'agency', 'grantee'])">Add Row</button>
                                             </td>
                                         </tr>
                                     </tbody>
                                 </table>
                                 <br>
                                 <h6 class="card-title">&nbsp&nbsp&nbspF. National Competency for Students</h6>
-                                <table id="II-F" class="table">
+                                <table id="IIF" class="table">
                                     <thead>
                                         <th>Program</th>
                                         <th>Type of National Competency</th>
@@ -216,7 +216,7 @@
                                             <td></td>
                                             <td></td>
                                             <td class="text-end">
-                                                <button type="button" class="btn btn-sm btn-outline-success" onClick="addRow('II-F', ['program', 'competency', 'students'])">Add Row</button>
+                                                <button type="button" class="btn btn-sm btn-outline-success" onClick="addRow('IIF', ['program', 'competency', 'students'])">Add Row</button>
                                             </td>
                                         </tr>
                                     </tbody>
@@ -325,7 +325,7 @@
                                 </table> -->
                                 <br>
                                 <h6 class="card-title">&nbsp&nbsp&nbspA. Seminars and Trainings</h6>
-                                <table id="III-A" class="table">
+                                <table id="IIIA" class="table">
                                     <thead>
                                         <th>Type</th>
                                         <th>Title of Seminar/ Training/ Workshop</th>
@@ -338,18 +338,18 @@
                                             <td></td>
                                             <td></td>
                                             <td class="text-end">
-                                                <button type="button" class="btn btn-sm btn-outline-success" onClick="addRow2('III-A', ['type', 'title', 'venue', 'date'])">Add Row</button>
+                                                <button type="button" class="btn btn-sm btn-outline-success" onClick="addRow2('IIIA', ['type', 'title', 'venue', 'date'])">Add Row</button>
                                             </td>
                                         </tr>
                                     </tbody>
                                 </table>
                                 <br>
                                 <h6 class="card-title">&nbsp&nbsp&nbspB. Faculty Recognition and Awards</h6>
-                                <table id="III-B" class="table">
+                                <table id="IIIB" class="table">
                                     <thead>
                                         <th>Type</th>
                                         <th>Award/Recognition</th>
-                                        <th>Granting Agency/Instituion</th>
+                                        <th>Granting Agency/Institution</th>
                                         <th>Venue</th>
                                         <th>Date Received</th>
                                     </thead>
@@ -360,28 +360,28 @@
                                             <td></td>
                                             <td></td>
                                             <td class="text-end">
-                                                <button type="button" class="btn btn-sm btn-outline-success" onClick="addRow2('III-B', ['type', 'award', 'agency', 'venue', 'date'])">Add Row</button>
+                                                <button type="button" class="btn btn-sm btn-outline-success" onClick="addRow2('IIIB', ['type', 'award', 'agency', 'venue', 'date'])">Add Row</button>
                                             </td>
                                         </tr>
                                     </tbody>
                                 </table>
                                 <br>
                                 <h6 class="card-title">&nbsp&nbsp&nbspC. National Competency</h6>
-                                <table id="III-C" class="table">
+                                <table id="IIIC" class="table">
                                     <thead>
                                         <th>Type of National Competency</th>
                                     </thead>
                                     <tbody>
                                         <tr>
                                             <td class="text-end">
-                                                <button type="button" class="btn btn-sm btn-outline-success" onClick="addRow('III-C', ['type'])">Add Row</button>
+                                                <button type="button" class="btn btn-sm btn-outline-success" onClick="addRow('IIIC', ['type'])">Add Row</button>
                                             </td>
                                         </tr>
                                     </tbody>
                                 </table>
                                 <br>
                                 <h6 class="card-title">&nbsp&nbsp&nbspD. Paper Presentation</h6>
-                                <table id="III-D" class="table">
+                                <table id="IIID" class="table">
                                     <thead>
                                         <th>Type</th>
                                         <th>Name of Conference</th>
@@ -396,14 +396,14 @@
                                             <td></td>
                                             <td></td>
                                             <td class="text-end">
-                                                <button type="button" class="btn btn-sm btn-outline-success" onClick="addRow2('III-D', ['type', 'conference', 'title', 'venue', 'date'])">Add Row</button>
+                                                <button type="button" class="btn btn-sm btn-outline-success" onClick="addRow2('IIID', ['type', 'conference', 'title', 'venue', 'date'])">Add Row</button>
                                             </td>
                                         </tr>
                                     </tbody>
                                 </table>
                                 <br>
                                 <h6 class="card-title">&nbsp&nbsp&nbspE. Publication<h6>
-                                <table id="III-E" class="table">
+                                <table id="IIIE" class="table">
                                     <thead>
                                         <th>Title of the Published Study</th>
                                         <th>Journal Article</th>
@@ -416,7 +416,7 @@
                                             <td></td>
                                             <td></td>
                                             <td class="text-end">
-                                                <button type="button" class="btn btn-sm btn-outline-success" onClick="addRow('III-E', ['title', 'article','publisher', 'number'])">Add Row</button>
+                                                <button type="button" class="btn btn-sm btn-outline-success" onClick="addRow('IIIE', ['title', 'article','publisher', 'number'])">Add Row</button>
                                             </td>
                                         </tr>
                                     </tbody>
@@ -438,14 +438,14 @@
                             <div class="card-body">
                                 <br>
                                 <h6 class="card-title">&nbsp&nbsp&nbspA. Student Organization</h6>
-                                <table id="IV-A" class="table">
+                                <table id="IVA" class="table">
                                     <thead>
                                         <th>Name of Organization</th>
                                     </thead>
                                     <tbody>
                                         <tr>
                                             <td class="text-end">
-                                                <button type="button" class="btn btn-sm btn-outline-success" onClick="addRow('IV-A', ['name'])">Add Row</button>
+                                                <button type="button" class="btn btn-sm btn-outline-success" onClick="addRow('IVA', ['name'])">Add Row</button>
                                             </td>
                                         </tr>
                                     </tbody>
@@ -464,7 +464,7 @@
                             <div class="card-body">
                                 <br>
                                 <h6 class="card-title">&nbsp&nbsp&nbspA. On-going Research/Study</h6>
-                                <table id="V-A" class="table">
+                                <table id="VA" class="table">
                                     <thead>
                                         <th>Title of the Study</th>
                                         <th>Target Date of Completion</th>
@@ -473,14 +473,14 @@
                                         <tr>
                                             <td></td>
                                             <td class="text-end">
-                                                <button type="button" class="btn btn-sm btn-outline-success" onClick="addRow('V-A', ['title', 'date'])">Add Row</button>
+                                                <button type="button" class="btn btn-sm btn-outline-success" onClick="addRow('VA', ['title', 'date'])">Add Row</button>
                                             </td>
                                         </tr>
                                     </tbody>
                                 </table>
                                 <br>
                                 <h6 class="card-title">&nbsp&nbsp&nbspB. Completed Research/Study</h6>
-                                <table id="V-B" class="table">
+                                <table id="VB" class="table">
                                     <thead>
                                         <th>Title of the Study</th>
                                         <th>Date of Completion</th>
@@ -489,14 +489,14 @@
                                         <tr>
                                             <td></td>
                                             <td class="text-end">
-                                                <button type="button" class="btn btn-sm btn-outline-success" onClick="addRow('V-B', ['title', 'date'])">Add Row</button>
+                                                <button type="button" class="btn btn-sm btn-outline-success" onClick="addRow('VB', ['title', 'date'])">Add Row</button>
                                             </td>
                                         </tr>
                                     </tbody>
                                 </table>
                                 <br>
                                 <h6 class="card-title">&nbsp&nbsp&nbspC. Research Project Funded by Outside Agency</h6>
-                                <table id="V-C" class="table">
+                                <table id="VC" class="table">
                                     <thead>
                                         <th>Title of the Study</th>
                                         <th>Sponsor Agency</th>
@@ -507,7 +507,7 @@
                                             <td></td>
                                             <td></td>
                                             <td class="text-end">
-                                                <button type="button" class="btn btn-sm btn-outline-success" onClick="addRow('V-C', ['title', 'sponsor', 'date'])">Add Row</button>
+                                                <button type="button" class="btn btn-sm btn-outline-success" onClick="addRow('VC', ['title', 'sponsor', 'date'])">Add Row</button>
                                             </td>
                                         </tr>
                                     </tbody>
@@ -529,21 +529,21 @@
                             <div class="card-body">
                                 <br>
                                 <h6 class="card-title">&nbsp&nbsp&nbspA. Extension Projects</h6>
-                                <table id="VI-A" class="table">
+                                <table id="VIA" class="table">
                                     <thead>
                                         <th>Name of College/Campus Extension Project</th>
                                     </thead>
                                     <tbody>
                                         <tr>
                                             <td class="text-end">
-                                                <button type="button" class="btn btn-sm btn-outline-success" onClick="addRow('VI-A', ['name'])">Add Row</button>
+                                                <button type="button" class="btn btn-sm btn-outline-success" onClick="addRow('VIA', ['name'])">Add Row</button>
                                             </td>
                                         </tr>
                                     </tbody>
                                 </table>
                                 <br>
                                 <h6 class="card-title">&nbsp&nbsp&nbspB. Extension Activities</h6>
-                                <table id="VI-B" class="table">
+                                <table id="VIB" class="table">
                                     <thead>
                                         <th>Extension Activities</th>
                                         <th>Date of Extension Activity</th>
@@ -558,7 +558,7 @@
                                             <td></td>
                                             <td></td>
                                             <td class="text-end">
-                                                <button type="button" class="btn btn-sm btn-outline-success" onClick="addRow('VI-B', ['activity', 'date', 'extensionist', 'clientle', 'agency'])">Add Row</button>
+                                                <button type="button" class="btn btn-sm btn-outline-success" onClick="addRow('VIB', ['activity', 'date', 'extensionist', 'clientle', 'agency'])">Add Row</button>
                                             </td>
                                         </tr>
                                     </tbody>
@@ -581,7 +581,7 @@
                             <div class="card-body">
                                 <br>
                                 <h6 class="card-title">&nbsp&nbsp&nbspA. Linkages</h6>
-                                <table id="VII-A" class="table">
+                                <table id="VIIA" class="table">
                                     <thead>
                                         <th>Agency</th>
                                         <th>Nature of Linkage (OJT Center, Immersion Partner, Funding Agency, Training Site, etc)</th>
@@ -590,14 +590,14 @@
                                         <tr>
                                             <td></td>
                                             <td class="text-end">
-                                                <button type="button" class="btn btn-sm btn-outline-success" onClick="addRow('VII-A', ['agency', 'nature'])">Add Row</button>
+                                                <button type="button" class="btn btn-sm btn-outline-success" onClick="addRow('VIIA', ['agency', 'nature'])">Add Row</button>
                                             </td>
                                         </tr>
                                     </tbody>
                                 </table>
                                 <br>
                                 <h6 class="card-title">&nbsp&nbsp&nbspB. Fund Generation</h6>
-                                <table id="VII-B" class="table">
+                                <table id="VIIB" class="table">
                                     <thead>
                                         <th>Income Generating Project</th>
                                         <th>Amount Generated</th>
@@ -606,7 +606,7 @@
                                         <tr>
                                             <td></td>
                                             <td class="text-end">
-                                                <button type="button" class="btn btn-sm btn-outline-success" onClick="addRow('VII-B', ['project', 'amount'])">Add Row</button>
+                                                <button type="button" class="btn btn-sm btn-outline-success" onClick="addRow('VIIB', ['project', 'amount'])">Add Row</button>
                                             </td>
                                         </tr>
                                     </tbody>
@@ -629,16 +629,16 @@
                             <div class="card-body">
                                 <br>
                                 <h6 class="card-title">&nbsp&nbsp&nbspA. Linkages</h6>
-                                <table id="VIII-A" class="table">
+                                <table id="VIIIA" class="table">
                                     <thead>
                                         <th>Infrastructure</th>
-                                        <th>Precentage of Development</th>
+                                        <th>Percentage of Development</th>
                                     </thead>
                                     <tbody>
                                         <tr>
                                             <td></td>
                                             <td class="text-end">
-                                                <button type="button" class="btn btn-sm btn-outline-success" onClick="addRow('VIII-A', ['infrastructure', 'percentage'])">Add Row</button>
+                                                <button type="button" class="btn btn-sm btn-outline-success" onClick="addRow('VIIIA', ['infrastructure', 'percentage'])">Add Row</button>
                                             </td>
                                         </tr>
                                     </tbody>
@@ -648,11 +648,7 @@
                     </div>
                     @endif
 
-                    @if (Auth::user()->designation != "Admin")
-                    <button type="submit" class="btn btn-primary">
-                        {{ __('Add') }}
-                    </button>
-                    @endif
+                    
 
 
                     <button type="submit" class="btn btn-primary">
