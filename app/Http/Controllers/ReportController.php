@@ -426,8 +426,25 @@ class ReportController extends Controller
     }
 
     function viewSubmittedReport() {
+        global $data;
 
-        $data = (array) null;
+        /* current format of the data 
+        $data = array (
+            'user1' => array(
+                    'reports' => [['value1', 'value2'], ['value2']],
+                    'name' => 'user1',
+            ),
+            'user2' => array(
+                    'reports' => [['value1', 'value2'], ['value2']],
+                    'name' => 'user2',
+            ),
+            'user3' => array(
+                    'reports' => [['value1', 'value2'], ['value2']],
+                    'name' => 'user3',
+            ),
+        ); */
+
+        
 
         $reports = DB::table('submission')
             ->get();
@@ -437,9 +454,23 @@ class ReportController extends Controller
             ->orderBy('name', 'asc')
             ->get();
 
-        foreach ($reports as $report) {
-            // $num = $report->id;
-            array_push($data[0],  $report);
+        /* foreach ($reports as $report) {
+            if(array_key_exists($report->uid, $data)) {
+                break;
+            } else {
+                array_push($data[$report->uid] = array($report->id => $report->year));
+            }
+        } */
+        foreach ($users as $user) {
+            # initializes the name and properties for user
+            $data[$user->name]['name'] = $user->name;
+            $data[$user->name]['reports'] = array();
+            foreach ($reports as $report ) {
+                if($user->id==$report->uid){// if the user id matches the report uid
+                    //it pushes the report under the reports property of the user
+                    array_push($data[$user->name]['reports'], $report);
+                }
+            }
         }
         $quarters = DB::table('year')
             ->get();
