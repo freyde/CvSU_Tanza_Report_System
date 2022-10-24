@@ -43,7 +43,16 @@
                                                <div id="collapse{{$usersCollection['name']}}" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
                                                     <div class="accordion-body">
                                                         {{-- access the report properties here --}}
-                                                        <strong>{{$report->id}}</strong>
+                                                        <a href="/report/view/{{$report->id}}"><strong>
+                                                            {{-- for setting up variables, "" prevents variables from displaying --}}
+                                                            {{  
+                                                                "",
+                                                                $yearDisplay = $years[($report->year)-1]->year,
+                                                                $quarterDisplay = $years[($report->year)-1]->quarter,
+                                                            }}
+                                                             Year {{$yearDisplay}} Quarter {{$quarterDisplay}}
+                                                            
+                                                        </strong></a>
                                                     </div>
                                                 </div>
                                                @foreach ($report as $item)

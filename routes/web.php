@@ -41,6 +41,7 @@ Route::get('/profile', [App\Http\Controllers\ReportController::class, 'viewProfi
 Route::get('/report/view', [App\Http\Controllers\ReportController::class, 'viewSubmittedReport'])->name('report.view')->middleware('is_admin', 'verified');
 Route::get('/report/form', [App\Http\Controllers\ReportController::class, 'viewReportForm'])->name('report.form')->middleware('is_user','verified');
 Route::post('/report/save', [App\Http\Controllers\ReportController::class, 'saveReport'])->name('report.save')->middleware('is_user', 'verified');
+Route::get('/report/view/{id}', [App\Http\Controllers\ReportController::class, 'viewSpecificReport'])->name('report.id')->middleware('is_admin', 'verified');
 
 
 // ->name('home')->middleware('is_user', 'verified');

@@ -441,10 +441,9 @@ class ReportController extends Controller
             'user3' => array(
                     'reports' => [['value1', 'value2'], ['value2']],
                     'name' => 'user3',
+                    'year' => 'year_id',
             ),
         ); */
-
-        
 
         $reports = DB::table('submission')
             ->get();
@@ -454,13 +453,8 @@ class ReportController extends Controller
             ->orderBy('name', 'asc')
             ->get();
 
-        /* foreach ($reports as $report) {
-            if(array_key_exists($report->uid, $data)) {
-                break;
-            } else {
-                array_push($data[$report->uid] = array($report->id => $report->year));
-            }
-        } */
+        $quarters = DB::table('year')
+            ->get();
         foreach ($users as $user) {
             # initializes the name and properties for user
             $data[$user->name]['name'] = $user->name;
@@ -472,9 +466,74 @@ class ReportController extends Controller
                 }
             }
         }
-        $quarters = DB::table('year')
-            ->get();
+        
 
         return view('adminReportList', ['reports' => $reports, 'users' => $users, 'years' => $quarters, 'data' => $data]);
+    }
+
+    function viewSpecificReport($id){
+        //--------------------------------Curriculum---------------------------------
+        $program_IA = self::getData('accreditation', $id);
+        $program_IB = self::getData('government', $id);
+        $program_IC = self::getData('licensure', $id);
+
+        //-----------------------------OSAS------------------------------------------
+        $program_IIA = self::getData('enrolment', $id);
+        $name_IIB = self::getData('foreign_students', $id);
+        $program_IIC = self::getData('graduates', $id);
+        $program_IID = self::getData('scholarships_student', $id);
+        $award_IIE = self::getData('recognition_student', $id);
+        $program_IIF = self::getData('competency_student', $id);
+        $name_IVA = self::getData('organization_student', $id);
+
+        //--------------------------------Faculty-------------------------------
+        $type_IIIA = self::getData('seminar', $id);
+        $type_IIIB = self::getData('recognition', $id);
+        $type_IIIC = self::getData('competency', $id);
+        $type_IIID = self::getData('presentation', $id);
+        $title_IIIE = self::getData('publication', $id);
+        $title_VA = self::getData('ongoing_research', $id);
+        $title_VB = self::getData('completed_research', $id);
+        $title_VC = self::getData('outside_research', $id);
+
+        //--------------------------------------Extension-------------------------------
+        $name_VIA = self::getData('extension_project', $id);
+        $activity_VIB = self::getData('extension_activities', $id);
+
+        //-------------------------------------EBA-------------------------------
+        $agency_VIIA = self::getData('linkages', $id);
+        $project_VIIB = self::getData('fund_generation', $id);
+        //-------------------------------Custodian--------------------------------
+        $infrastructure_VIIIA = self::getData('infrastructure', $id);
+        return view('viewSpecificReport', ['program_IA' => $program_IA, 
+            'program_IB' => $program_IB, 
+            'program_IC' => $program_IC,
+            'program_IIA' => $program_IIA,
+            'name_IIB' => $name_IIB,
+            'program_IIC' => $program_IIC,
+            'program_IID' => $program_IID,
+            'award_IIE' => $award_IIE,
+            'program_IIF' => $program_IIF,
+            'type_IIIA' => $type_IIIA,
+            'type_IIIB' => $type_IIIB,
+            'type_IIIC' => $type_IIIC,
+            'type_IIID' => $type_IIID,
+            'title_IIIE' => $title_IIIE,
+            'name_IVA' => $name_IVA,
+            'title_VA' => $title_VA,
+            'title_VB' => $title_VB,
+            'title_VC' => $title_VC,
+            'name_VIA' => $name_VIA,
+            'activity_VIB' => $activity_VIB,
+            'agency_VIIA' => $agency_VIIA,
+            'project_VIIB' => $project_VIIB,
+            'infrastructure_VIIIA' => $infrastructure_VIIIA,
+        ]);
+    }
+
+    function getData($table, $id){
+        return DB::table($table)
+        ->where('id', '=', $id)
+        ->get();
     }
 }
