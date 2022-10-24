@@ -95,6 +95,9 @@ class ReportController extends Controller
 
 
     function viewReportForm() {
+        
+
+
         $activeYear = DB::table('year')
             ->where('status', '=', 'active')
             ->value('id');
@@ -107,6 +110,7 @@ class ReportController extends Controller
         $uid = $request->userID;
         $activeYear = $request->activeYear;
         $year = DB::table('year');
+
         //--------------------------------Curriculum---------------------------------
         // Accreditation Table Update
         if($request->program_IA != null) {
@@ -534,18 +538,27 @@ class ReportController extends Controller
     function getData($table, $id){
         $uid = DB::table('submission')
             ->where('id', '=', $id)
-            ->get('uid');
+            ->get('uid');  
+
+        $uid = $uid[0]->uid;
 
         $year = DB::table('submission')
-            ->where('year', '=', $id)
+            ->where('id', '=', $id)
             ->get('year');
 
+        $year = $year[0]->year;
 
-        return DB::table($table)
-        ->where([
-            ['uid', '=', $uid],
-            ['year', '=', $year]
-            ])
-        ->get();
+
+        $data = DB::table($table)
+            ->where([
+                ['uid', '=', $uid],
+                ['year', '=', $year]  
+                ])
+            ->get();
+
+        error_log($data);
+
+        return $data;
+        // return view('viewer', ['data' => $uid]);
     }
 }

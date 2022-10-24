@@ -32,15 +32,15 @@
                                     
                                     <div>
                                         <div class="accordion-item">
-                                            <h2 class="accordion-header" id="heading{{$usersCollection['name']}}">
-                                              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse{{$usersCollection['name']}}" aria-expanded="false" aria-controls="collapse{{ $usersCollection['name'] }}">
+                                            <h2 class="accordion-header" id="heading{{str_replace(' ','-',$usersCollection['name'])}}">
+                                              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse{{str_replace(' ','-',$usersCollection['name'])}}" aria-expanded="false" aria-controls="collapse{{ str_replace(' ','-',$usersCollection['name']) }}">
                                                 {{$usersCollection['name']}}
                                               </button>
                                             </h2>
                                             @if($usersCollection['reports'] != null)
                                                 @foreach ($usersCollection['reports'] as $report)
                                                     {{-- loop through reports --}}
-                                                    <div id="collapse{{$usersCollection['name']}}" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                                                    <div id="collapse{{str_replace(' ','-',$usersCollection['name'])}}" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
                                                         <div class="accordion-body">
                                                             {{-- access the report properties here --}}
                                                             <a href="/report/view/{{$report->id}}">
@@ -61,7 +61,7 @@
                                                     @endforeach
                                                 @endforeach
                                             @else
-                                                <div id="collapse{{$usersCollection['name']}}" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                                                <div id="collapse{{str_replace(' ','-',$usersCollection['name'])}}" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
                                                     <div class="accordion-body">
                                                         <strong>No report to display</strong>
                                                     </div>
