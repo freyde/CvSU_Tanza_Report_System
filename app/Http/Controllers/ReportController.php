@@ -532,8 +532,20 @@ class ReportController extends Controller
     }
 
     function getData($table, $id){
+        $uid = DB::table('submission')
+            ->where('id', '=', $id)
+            ->get('uid');
+
+        $year = DB::table('submission')
+            ->where('year', '=', $id)
+            ->get('year');
+
+
         return DB::table($table)
-        ->where('id', '=', $id)
+        ->where([
+            ['uid', '=', $uid],
+            ['year', '=', $year]
+            ])
         ->get();
     }
 }

@@ -37,29 +37,36 @@
                                                 {{$usersCollection['name']}}
                                               </button>
                                             </h2>
-                                           
-                                           @foreach ($usersCollection['reports'] as $report)
-                                               {{-- loop through reports --}}
-                                               <div id="collapse{{$usersCollection['name']}}" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                                            @if($usersCollection['reports'] != null)
+                                                @foreach ($usersCollection['reports'] as $report)
+                                                    {{-- loop through reports --}}
+                                                    <div id="collapse{{$usersCollection['name']}}" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                                                        <div class="accordion-body">
+                                                            {{-- access the report properties here --}}
+                                                            <a href="/report/view/{{$report->id}}">
+                                                                <strong>
+                                                                {{-- for setting up variables, "" prevents variables from displaying --}}
+                                                                {{  
+                                                                    "",
+                                                                    $yearDisplay = $years[($report->year)-1]->year,
+                                                                    $quarterDisplay = $years[($report->year)-1]->quarter,
+                                                                }}
+                                                                Year {{$yearDisplay}} Quarter {{$quarterDisplay}}
+                                                                </strong>
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                    @foreach ($report as $item)
+
+                                                    @endforeach
+                                                @endforeach
+                                            @else
+                                                <div id="collapse{{$usersCollection['name']}}" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
                                                     <div class="accordion-body">
-                                                        {{-- access the report properties here --}}
-                                                        <a href="/report/view/{{$report->id}}"><strong>
-                                                            {{-- for setting up variables, "" prevents variables from displaying --}}
-                                                            {{  
-                                                                "",
-                                                                $yearDisplay = $years[($report->year)-1]->year,
-                                                                $quarterDisplay = $years[($report->year)-1]->quarter,
-                                                            }}
-                                                             Year {{$yearDisplay}} Quarter {{$quarterDisplay}}
-                                                            
-                                                        </strong></a>
+                                                        <strong>No report to display</strong>
                                                     </div>
                                                 </div>
-                                               @foreach ($report as $item)
-
-                                               @endforeach
-                                           @endforeach
-                                            
+                                            @endif
                                         </div>
                                     </div>
                                     @endforeach
