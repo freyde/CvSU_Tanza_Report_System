@@ -30,6 +30,7 @@ function updateFaculty(uid) {
             alert('Error updating faculty.');
         }
     });
+    
     console.log(dept.value + " " + desig.value);
 }
 
