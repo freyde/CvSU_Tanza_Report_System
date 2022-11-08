@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
 
 class ReportController extends Controller
 {
@@ -95,14 +96,33 @@ class ReportController extends Controller
 
 
     function viewReportForm() {
-        
-
-
         $activeYear = DB::table('year')
             ->where('status', '=', 'active')
             ->value('id');
             // ->get();
-        return view('reportForm', ['activeYear' => $activeYear]);
+
+        $name = Auth::user()->name;
+       
+        $activeUserID = DB::table('users')
+            ->where([
+                ['name', '=', $name],
+                ])
+            ->value('id');
+
+        $submissionRecord = DB::table('submission')
+            ->where([
+                ['uid', '=', $activeUserID],
+                ['year' , '=', $activeYear],
+            ])
+            ->get();
+        error_log(Auth::user()->role);
+        if( ($submissionRecord == null) || (Auth::user()->role == 'admin')){
+            return view('reportForm', ['activeYear' => $activeYear]);
+        }
+        else{
+            $errorMessage = "You have already submitted accomplishment report this quarter!";
+            return view('error')->with('errorMessage', $errorMessage);
+        }
         // return view('reportForm');
     }
 
