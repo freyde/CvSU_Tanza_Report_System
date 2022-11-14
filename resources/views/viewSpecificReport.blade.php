@@ -16,7 +16,8 @@
                     --------------------------------------------------------Curriculum----------------------------------------
                     -->
                     @csrf
-                    @if (Auth::user()->designation == "Curriculum" || Auth::user()->designation == "Admin")
+                    
+                    @if ($userDesignation == "Curriculum" || $userDesignation == "Admin")
                         <div class="card-body">
                             <div class="card">
                                 <div class="card-header">
@@ -101,7 +102,7 @@
                      <!-- 
                     --------------------------------------------------OSAS-----------------------------------------------
                     -->
-                    @if (Auth::user()->designation == "OSAs" || Auth::user()->designation == "Admin")
+                    @if ($userDesignation == "OSAs" || $userDesignation == "Admin")
                     <div class="card-body">
                         <div class="card">
                             <div class="card-header">
@@ -429,7 +430,7 @@
                     ---------------------------------------------OSAs----------------------------------------------
                     -->
 
-                    @if (Auth::user()->designation == "OSAs" || Auth::user()->designation == "Admin")
+                    @if ($userDesignation == "OSAs" || $userDesignation == "Admin")
                     <div class="card-body">
                         <div class="card">
                             <div class="card-header">
@@ -536,7 +537,7 @@
                     --------------------------------------------Extension------------------------------------- 
                     -->
 
-                    @if (Auth::user()->designation == "Extension" || Auth::user()->designation == "Admin")
+                    @if ($userDesignation == "Extension" || $userDesignation == "Admin")
                     <div class="card-body">
                         <div class="card">
                             <div class="card-header">
@@ -600,7 +601,7 @@
                     ----------------------------------------------------EBA---------------------------------------------- 
                     -->
 
-                    @if (Auth::user()->designation == "EBA" || Auth::user()->designation == "Admin")
+                    @if ($userDesignation == "EBA" || $userDesignation == "Admin")
                     <div class="card-body">
                         <div class="card">
                             <div class="card-header">
@@ -652,7 +653,7 @@
                     </div>
                     @endif
 
-                    @if(Auth::user()->designation == "Custodian" || Auth::user()->designation == "Admin")
+                    @if($userDesignation == "Custodian" || $userDesignation == "Admin")
                     <div class="card-body">
                         <div class="card">
                             <div class="card-header">

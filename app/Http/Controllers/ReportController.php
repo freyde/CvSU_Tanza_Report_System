@@ -115,8 +115,8 @@ class ReportController extends Controller
                 ['year' , '=', $activeYear],
             ])
             ->get();
-        error_log(Auth::user()->role);
-        if( ($submissionRecord == null) || (Auth::user()->role == 'admin')){
+        error_log($submissionRecord);
+        if( count($submissionRecord) == 0 || (Auth::user()->role == 'admin')){
             return view('reportForm', ['activeYear' => $activeYear]);
         }
         else{
@@ -529,6 +529,18 @@ class ReportController extends Controller
         $project_VIIB = self::getData('fund_generation', $id);
         //-------------------------------Custodian--------------------------------
         $infrastructure_VIIIA = self::getData('infrastructure', $id);
+        //-------------------------------User's Designation--------------------------------
+        $userID = DB::table('submission')
+            ->where('id', '=', $id)
+            ->get('uid');
+
+        $userID = $userID[0]->uid;
+
+        $userDesignation = DB::table('users')
+            ->where('id', '=', $userID)
+            ->get('designation');
+        $userDesignation = $userDesignation[0]->designation;
+
         return view('viewSpecificReport', ['program_IA' => $program_IA, 
             'program_IB' => $program_IB, 
             'program_IC' => $program_IC,
@@ -552,6 +564,7 @@ class ReportController extends Controller
             'agency_VIIA' => $agency_VIIA,
             'project_VIIB' => $project_VIIB,
             'infrastructure_VIIIA' => $infrastructure_VIIIA,
+            'userDesignation' => $userDesignation,
         ]);
     }
 
@@ -575,8 +588,6 @@ class ReportController extends Controller
                 ['year', '=', $year]  
                 ])
             ->get();
-
-        error_log($data);
 
         return $data;
         // return view('viewer', ['data' => $uid]);
