@@ -51,7 +51,7 @@ class RegisterController extends Controller
         event(new Registered($user = $this->create($request->all())));
         // $this->guard()->login($user);
         return $this->registered($request, $user)
-                            ?: redirect($this->redirectPath());
+            ?: redirect($this->redirectPath());
     }
 
     /**
@@ -90,10 +90,10 @@ class RegisterController extends Controller
     }
 
     public function showRegistrationForm()
-{
-    $designations = DB::table('designation')->orderBy('name', 'asc')
-    ->get();
+    {
+        $designations = DB::table('designation')->orderBy('name', 'asc')
+            ->get();
 
-    return view('auth.register', ['designations' => $designations]);
-}
+        return view('auth.register', ['designations' => $designations]);
+    }
 }

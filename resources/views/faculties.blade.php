@@ -83,7 +83,7 @@
 
                                 </td>
                                 <td>
-                                    <input class="btn btn-outline-success" type="button" onClick="updateFaculty({{$user->id}})" value="Save">
+                                    <input class="btn btn-outline-success" type="button" onClick='updateFaculty({{ $user->id }})' value="Save">
                                     <a href="{{ route('delete.faculty', $user->id) }}" class="btn btn-outline-danger" role="button">Delete</a>
                                 </td>
                             </tr>
